@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="theme-color" content="#000000">
+    <meta name="description" content="Flappy Phoenix - A modern twist on the classic flappy bird game">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="icons/icon-192x192.png">
+    <title>Flappy Phoenix | Next-Gen</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="game.js" defer></script>
+</head>
+<body>
+    <div id="loading-screen">
+        <div class="title">FLAPPY PHOENIX</div>
+        <div class="progress-bar">
+            <div id="progress"></div>
+        </div>
+    </div>
+
+    <div id="game-container">
+        <canvas id="game-canvas"></canvas>
+        
+        <div id="score-display">Score: 0</div>
+        <div id="high-score-display">High Score: 0</div>
+        <div id="online-players">Online: 0</div>
+
+        <div id="start-instruction" style="display: none;">
+            Tap Screen or Press Space/Click to Start
+        </div>
+
+        <div id="menu-overlay" class="overlay">
+            <div class="title">FLAPPY PHOENIX</div>
+            <input type="text" id="username-input" placeholder="Enter your username" maxlength="15">
+            <button id="start-btn" class="btn">START GAME</button>
+            <div id="leaderboard">
+                <div style="text-align: center; margin-bottom: 10px;">TOP 100 PLAYERS</div>
+                <div id="leaderboard-entries"></div>
+            </div>
+        </div>
+
+        <div id="game-over-overlay" class="overlay" style="display: none;">
+            <div class="title">GAME OVER</div>
+            <div id="final-score" style="font-size: 24px; margin: 20px 0;">Score: 0</div>
+            <div id="new-high-score" style="color: #ffcc00; margin-bottom: 20px; display: none;">NEW HIGH SCORE!</div>
+            <button id="restart-btn" class="btn">PLAY AGAIN</button>
+            <button id="menu-btn" class="btn">MAIN MENU</button>
+        </div>
+
+        <div id="ad-container">
+            <div class="ad-placeholder">Advertisement Space</div>
+        </div>
+    </div>
+</body>
+</html>
