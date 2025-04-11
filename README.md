@@ -1,1 +1,1 @@
-# Flappy-Phoenix
+# Flappy Bird-Phoenix
