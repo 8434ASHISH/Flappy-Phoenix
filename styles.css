@@ -1,0 +1,76 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+}
+
+body {
+    overflow: hidden;
+    background: #000;
+    font-family: 'Press Start 2P', cursive;
+    touch-action: manipulation;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+#game-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+#game-canvas {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    z-index: 100;
+    padding: 20px;
+}
+
+.title {
+    font-size: clamp(24px, 8vw, 64px);
+    margin-bottom: 30px;
+    color: #ff9c00;
+    text-shadow: 0 0 10px #ff6b00, 0 0 20px #ff3d00;
+    animation: glow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 5px #ff9c00; }
+    to { text-shadow: 0 0 15px #ff6b00, 0 0 25px #ff3d00; }
+}
+
+/* ... (rest of your existing CSS) ... */
+
+/* PWA specific styles */
+@media all and (display-mode: standalone) {
+    body {
+        background: #000;
+    }
+    #ad-container {
+        height: 0;
+        overflow: hidden;
+    }
+}
