@@ -1,62 +1,101 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <meta name="theme-color" content="#000000">
-    <meta name="description" content="Flappy Phoenix - A modern twist on the classic flappy bird game">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="HandheldFriendly" content="True">
-    <meta name="MobileOptimized" content="320">
-    <link rel="manifest" href="manifest.json">
-    <link rel="apple-touch-icon" href="icons/icon-192x192.png">
-    <title>Flappy Phoenix | Next-Gen</title>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://8434ashish.github.io/Flappy-Phoenix/game.js"></script>
+    <title>Flappy Phoenix</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to bottom, #1a2a6c, #b21f1f, #fdbb2d);
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+        }
+        
+        #gameContainer {
+            position: relative;
+            text-align: center;
+        }
+        
+        #gameCanvas {
+            border: 5px solid #ff5722;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            background-color: #87CEEB;
+        }
+        
+        #usernameContainer {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            border-radius: 15px;
+            color: white;
+            z-index: 10;
+        }
+        
+        #usernameInput {
+            width: 250px;
+            height: 40px;
+            font-size: 18px;
+            padding: 8px 15px;
+            margin: 15px 0;
+            border: 2px solid #ff5722;
+            border-radius: 5px;
+            text-align: center;
+        }
+        
+        #startButton {
+            background-color: #ff5722;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        #startButton:hover {
+            background-color: #ff7043;
+            transform: scale(1.05);
+        }
+        
+        #gameTitle {
+            font-size: 48px;
+            color: #ffeb3b;
+            text-shadow: 3px 3px 0 #ff5722, 6px 6px 0 #1a2a6c;
+            margin-bottom: 30px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+        
+        .scoreDisplay {
+            font-size: 24px;
+            color: white;
+            text-shadow: 2px 2px 4px #000;
+            margin: 10px;
+        }
+    </style>
 </head>
 <body>
-    <div id="loading-screen">
-        <div class="title">FLAPPY PHOENIX</div>
-        <div class="progress-bar">
-            <div id="progress"></div>
+    <div id="gameContainer">
+        <canvas id="gameCanvas" width="400" height="600"></canvas>
+        <div id="usernameContainer">
+            <h1 id="gameTitle">Flappy Phoenix</h1>
+            <input type="text" id="usernameInput" placeholder="Enter your name" maxlength="15">
+            <br>
+            <button id="startButton">Start Game</button>
+        </div>
+        <div id="scoreContainer" class="scoreDisplay" style="display: none;">
+            Score: <span id="scoreValue">0</span>
         </div>
     </div>
-
-    <div id="game-container">
-        <canvas id="game-canvas"></canvas>
-        
-        <div id="score-display">Score: 0</div>
-        <div id="high-score-display">High Score: 0</div>
-        <div id="online-players">Online: 0</div>
-
-        <div id="start-instruction" style="display: none;">
-            Tap Screen or Press Space/Click to Start
-        </div>
-
-        <div id="menu-overlay" class="overlay">
-            <div class="title">FLAPPY PHOENIX</div>
-            <input type="text" id="username-input" placeholder="Enter your username" maxlength="15">
-            <button id="start-btn" class="btn">START GAME</button>
-            <div id="leaderboard">
-                <div style="text-align: center; margin-bottom: 10px;">TOP 100 PLAYERS</div>
-                <div id="leaderboard-entries"></div>
-            </div>
-        </div>
-
-        <div id="game-over-overlay" class="overlay" style="display: none;">
-            <div class="title">GAME OVER</div>
-            <div id="final-score" style="font-size: 24px; margin: 20px 0;">Score: 0</div>
-            <div id="new-high-score" style="color: #ffcc00; margin-bottom: 20px; display: none;">NEW HIGH SCORE!</div>
-            <button id="restart-btn" class="btn">PLAY AGAIN</button>
-            <button id="menu-btn" class="btn">MAIN MENU</button>
-        </div>
-
-        <div id="ad-container">
-            <div class="ad-placeholder">Advertisement Space</div>
-        </div>
-    </div>
+    <script src="game.js"></script>
 </body>
 </html>
